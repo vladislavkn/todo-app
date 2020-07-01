@@ -1,7 +1,10 @@
 import React from "react";
+import TaskList from "./TaskList";
 
-const App = () => {
-  return <div>Hello world</div>;
-};
+const App = () => (
+  <div>
+    <TaskList />
+  </div>
+);
 
 export default App;

@@ -2,7 +2,7 @@ import React, { createContext, useState } from "react";
 
 export const TaskListContext = createContext();
 
-export default TaskListContextProvider = ({ children }) => {
+export default ({ children }) => {
   const [state, setState] = useState([{ title: "task title", id: 0 }]);
 
   return (

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { TaskListContext } from "../Context/index";
+import { TaskListContext } from "../context/index";
 
 const TaskList = () => {
   const tasks = useContext(TaskListContext);
