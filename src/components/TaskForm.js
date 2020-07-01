@@ -41,13 +41,19 @@ const TaskForm = () => {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
+        className="form-control"
         ref={inputRef}
         value={title}
+        placeholder="Task title..."
         onChange={(e) => setTitle(e.target.value)}
       />
-      <div>
-        <button type="submit">{editable !== false ? "Apply" : "Add"}</button>
-        <button onClick={handleDeleteTasks}>Delete all</button>
+      <div className="py-2">
+        <button className="btn btn-dark mr-2" type="submit">
+          {editable !== false ? "Apply" : "Add"}
+        </button>
+        <button className="btn btn-dark" onClick={handleDeleteTasks}>
+          Delete all
+        </button>
       </div>
     </form>
   );

@@ -16,7 +16,7 @@ const TaskList = () => {
 
   return (
     <div>
-      <ul>
+      <ul className="list-group">
         {tasks.map((task) => (
           <TaskItem
             key={task.id}
