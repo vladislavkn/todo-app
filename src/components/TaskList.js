@@ -5,13 +5,14 @@ import TaskItem from "./TaskItem";
 const TaskList = () => {
   const [{ tasks }, setState] = useContext(TaskListContext);
   const handleEditTask = (task) => {
-    setState({ editable: task.id });
+    setState((prevState) => ({ ...prevState, editable: task.id }));
   };
 
-  const handleDeleteTask = (task) => {
-    tasks.filter((_) => _.id !== task.id);
-    setState({ tasks });
-  };
+  const handleDeleteTask = (task) =>
+    setState((prevState) => ({
+      ...prevState,
+      tasks: tasks.filter((_) => _.id !== task.id),
+    }));
 
   return (
     <div>

@@ -1,32 +1,43 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import { TaskListContext } from "../context";
 
 const TaskForm = () => {
+  const [{ editable, tasks }, setState] = useContext(TaskListContext);
   const [title, setTitle] = useState("");
-  const [{ editable }, setState] = useContext(TaskListContext);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    if (editable !== false) {
+      setTitle(tasks.find((_) => _.id === editable).title || "");
+    }
+    inputRef.current.focus();
+  }, [editable]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (editable !== false) {
       setState((prevState) => ({
         editable: false,
-        tasks: prevState.tasks.map((task) => {
-          task.id === editable ? { ...task, title } : task;
-        }),
+        tasks: prevState.tasks.map((task) =>
+          task.id === editable ? { ...task, title } : task
+        ),
       }));
-    } else {
+    } else if (title.length) {
       setState((prevState) => ({
         ...prevState,
         idCounter: prevState.idCounter + 1,
-        tasks: [...prevState.tasks, { title, id: prevState.idCounter }],
+        tasks: [...prevState.tasks, { title, id: prevState.idCounter + 1 }],
       }));
     }
+    setTitle("");
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <input
         type="text"
+        ref={inputRef}
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
