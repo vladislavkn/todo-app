@@ -1,10 +1,11 @@
 import React from "react";
 import TaskList from "./TaskList";
+import TaskListContextProvier from "../context";
 
 const App = () => (
-  <div>
+  <TaskListContextProvier>
     <TaskList />
-  </div>
+  </TaskListContextProvier>
 );
 
 export default App;
