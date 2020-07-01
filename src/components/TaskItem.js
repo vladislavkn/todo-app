@@ -5,8 +5,12 @@ const TaskItem = ({ title }) => {
     <li>
       <span>{title}</span>
       <div>
-        <button>Delete</button>
-        <button>Edit</button>
+        <button>
+          <i className="fa fa-trash"></i>
+        </button>
+        <button>
+          <i className="fa fa-edit"></i>
+        </button>
       </div>
     </li>
   );
