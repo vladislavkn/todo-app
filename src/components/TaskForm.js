@@ -33,6 +33,10 @@ const TaskForm = () => {
     setTitle("");
   };
 
+  const handleDeleteTasks = () => {
+    setState((prevState) => ({ ...prevState, tasks: [] }));
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <input
@@ -43,7 +47,7 @@ const TaskForm = () => {
       />
       <div>
         <button type="submit">{editable !== false ? "Apply" : "Add"}</button>
-        <button>Delete all</button>
+        <button onClick={handleDeleteTasks}>Delete all</button>
       </div>
     </form>
   );
