@@ -14,19 +14,20 @@ const TaskList = () => {
       tasks: tasks.filter((_) => _.id !== task.id),
     }));
 
+  if (tasks.length === 0)
+    return <h6 className="text-center text-secondary">Add some tasks!</h6>;
+
   return (
-    <div>
-      <ul className="list-group">
-        {tasks.map((task) => (
-          <TaskItem
-            key={task.id}
-            task={task}
-            onEdit={handleEditTask}
-            onDelete={handleDeleteTask}
-          />
-        ))}
-      </ul>
-    </div>
+    <ul className="list-group">
+      {tasks.map((task) => (
+        <TaskItem
+          key={task.id}
+          task={task}
+          onEdit={handleEditTask}
+          onDelete={handleDeleteTask}
+        />
+      ))}
+    </ul>
   );
 };
 

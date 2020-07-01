@@ -9,7 +9,7 @@ const App = () => (
     <div className="d-flex h-100 align-items-center justify-content-center">
       <div className="col-11 col-md-6 col-lg-4">
         <div className="d-flex h-100 align-items-center flex-column">
-          <h1 className="text-center py-2">Todo Context app</h1>
+          <h1 className="text-center py-2 text-secondary">Todo Context app</h1>
           <div className="card w-100">
             <div className="card-header">
               <TaskForm />
